@@ -47,15 +47,15 @@ export default defineConfig({
     },
     server: {
         proxy: {
-            '^/weatherforecast': {
+            '^/UserMeals': {
                 target,
                 secure: false
             },
-            '^/usermeals': {
+            '^/MealItems': {
                 target,
                 secure: false
             },
-            '^/mealitems': {
+            '^/Users': {
                 target,
                 secure: false
             },

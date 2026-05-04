@@ -11,6 +11,7 @@ namespace Calcori.Server.Data
 
         public DbSet<UserMeal> UserMeals { get; set; }
         public DbSet<MealItem> MealItems { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
