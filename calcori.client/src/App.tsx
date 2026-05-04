@@ -70,26 +70,26 @@ function MealCard({ meal, onRefresh }: { meal: UserMeal; onRefresh: () => void }
     };
 
     return (
-        <div className="meal-card" style={{ border: '1px solid #ccc', padding: '15px', margin: '10px' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div className="meal-card">
+            <div className="meal-header">
                 <h3>{new Date(meal.date).toLocaleDateString()} - {meal.name}</h3>
-                <button onClick={deleteMeal} style={{ background: 'red', color: 'white', border: 'none', padding: '5px 10px' }}>Delete Meal</button>
+                <button onClick={deleteMeal} className="btn-danger">Delete Meal</button>
             </div>
             <p>Total Calories: {meal.totalCalories} kcal</p>
             <ul>
                 {meal.mealItems.map(item => (
-                    <li key={item.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <li key={item.id} className="meal-item">
                         <span>{item.foodName} - {item.weight}g - {item.totalCalories} kcal</span>
-                        <button onClick={() => deleteMealItem(item.id)} style={{ background: 'red', color: 'white', border: 'none', padding: '2px 5px' }}>Delete</button>
+                        <button onClick={() => deleteMealItem(item.id)} className="btn-danger btn-small">Delete</button>
                     </li>
                 ))}
             </ul>
 
-            <form onSubmit={addMealItem} style={{ marginTop: '15px', display: 'flex', gap: '5px' }}>
+            <form onSubmit={addMealItem} className="flex-form">
                 <input type="text" placeholder="Food Name" value={foodName} onChange={e => setFoodName(e.target.value)} required />
                 <input type="number" placeholder="Kcal/100g" value={calories} onChange={e => setCalories(Number(e.target.value))} required />
                 <input type="number" placeholder="Weight (g)" value={weight} onChange={e => setWeight(Number(e.target.value))} required />
-                <button type="submit" style={{ background: 'green', color: 'white', border: 'none', padding: '5px 10px' }}>Add Item</button>
+                <button type="submit" className="btn-success">Add Item</button>
             </form>
         </div>
     );
@@ -163,12 +163,12 @@ function App() {
         <div className="App">
             <h1>Calcori</h1>
 
-            <div style={{ marginBottom: '20px', padding: '15px', background: 'f5f5f5', borderRadius: '5px' }}>
+            <div className="add-meal-container">
                 <h2>Add New Meal</h2>
                 <form onSubmit={addMeal} style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
                     <input type="text" placeholder="Meal Name" value={newMealName} onChange={e => setNewMealName(e.target.value)} required />
                     <input type="date" value={newMealDate} onChange={e => setNewMealDate(e.target.value)} required />
-                    <button type="submit" style={{ background: 'blue', color: 'white', border: 'none', padding: '5px 10px' }}>Add Meal</button>
+                    <button type="submit" className="btn-primary">Add Meal</button>
                 </form>
             </div>
 
