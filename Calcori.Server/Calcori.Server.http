@@ -1,0 +1,6 @@
+@Calcori.Server_HostAddress = http://localhost:8080
+
+GET {{Calcori.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

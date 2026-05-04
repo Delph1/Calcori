@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="calcori.client/calcori.client.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+  <Project Path="Calcori.Server/Calcori.Server.csproj" />
+</Solution>
